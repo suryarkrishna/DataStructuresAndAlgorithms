@@ -1,3 +1,4 @@
+package Arrays;
 public class BuyAndSellStock {
     public static int maxProfit(int[] prices) {
         // int profit = 0;

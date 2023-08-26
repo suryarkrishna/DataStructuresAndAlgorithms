@@ -1,3 +1,4 @@
+package Arrays;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -13,5 +14,6 @@ public class Array {
             array[i] = sc.nextInt();
         }
         System.out.println("The elements of the array are: "+ Arrays.toString(array));
+        sc.close();
     }
 }
