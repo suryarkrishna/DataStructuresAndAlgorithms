@@ -1,4 +1,4 @@
-package LinkedList;
+package SinglyLinkedList;
 
 public class SllCreation {
     public static void main(String[] args) {
@@ -14,6 +14,8 @@ public class SllCreation {
         sll.deleteNodebyValue(8);
         sll.traverse();
         // sll.findNode(7);
+        sll.deletell();
+        sll.traverse();
     }
 }
 
@@ -36,6 +38,7 @@ class SinglyLinkedList {
         size++;
         return head;
     }
+
     // insert method
     public void insertInLinkedList(int nodeValue, int location) {
         Node node = new Node();
@@ -63,18 +66,19 @@ class SinglyLinkedList {
         }
         size++;
     }
+
     // traverse linkedlist
     public void traverse() {
         if (head == null) {
-            System.out.println("linkedlist is empty");
+            System.out.println("linkedlist doesnot exist");
         } else {
             Node tempNode = head;
             for (int i = 0; i < size; i++) {
-            System.out.print(tempNode.value);
-            if (i != size - 1) {
-            System.out.print(" -> ");
-            }
-            tempNode = tempNode.next;
+                System.out.print(tempNode.value);
+                if (i != size - 1) {
+                    System.out.print(" -> ");
+                }
+                tempNode = tempNode.next;
             }
 
         }
@@ -84,7 +88,7 @@ class SinglyLinkedList {
     // find node
     public void findNode(int nodeValue) {
         if (head == null) {
-            System.out.println("linkedlist is empty");
+            System.out.println("linkedlist doesnot exist");
         } else {
             Node current = head;
             for (int i = 0; i < size; i++) {
@@ -97,45 +101,50 @@ class SinglyLinkedList {
         }
         System.out.println();
     }
-    //delete a node by
-    public void deleteNodebyIndex(int location){
-        if(head == null){
+
+    // delete a node by index
+    public void deleteNodebyIndex(int location) {
+        if (head == null) {
             System.out.println("linkedlist doesnot exist");
-        }else{
-            if(location < 0 || location >= size){
-                System.out.println("Check the index entered.");
-                return;
-            }
-            if(location == 0){
-                head = head.next;
-                size--;
-            }
-            Node current = head;
-            for(int i = 0; i < location - 1; i++) {
-                current = current.next;
-            }
-            current.next = current.next.next;
-            if(current.next == null){
-                tail = current;
-            }
+            return;
+        }
+        if (location < 0 || location >= size) {
+            System.out.println("Check the index entered.");
+            return;
+        }else if (location == 0) {
+            head = head.next;
             size--;
+            if( size == 0){
+                tail = null;
+            }
         }
+        Node current = head;
+        for (int i = 0; i < location - 1; i++) {
+            current = current.next;
+        }
+        current.next = current.next.next;
+        if (current.next == null) {
+            tail = current;
+        }
+        size--;
+
     }
-    //delete a node by value
-    public void deleteNodebyValue(int nodeValue){
-        if(head == null){
+
+    // delete a node by value
+    public void deleteNodebyValue(int nodeValue) {
+        if (head == null) {
             System.out.println("linkedlist doesnot exist");
         }
-        if(head.value == nodeValue) {
+        if (head.value == nodeValue) {
             head = head.next;
             size--;
             return;
         }
         Node current = head;
-        while(current.next != null){
-            if(current.next.value == nodeValue){
+        while (current.next != null) {
+            if (current.next.value == nodeValue) {
                 current.next = current.next.next;
-                if(current.next == null){
+                if (current.next == null) {
                     tail = current;
                 }
                 size--;
@@ -143,5 +152,10 @@ class SinglyLinkedList {
             }
             current = current.next;
         }
+    }
+    //delete entire singly linkedlist
+    public void deletell() {
+        tail = head = null;
+        System.out.println("sll deleted successfully.");
     }
 }

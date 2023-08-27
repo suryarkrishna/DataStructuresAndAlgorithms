@@ -1,10 +1,10 @@
-package LinkedList;
+package SinglyLinkedList;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList.SinglyLinkedList sll = new LinkedList.SinglyLinkedList();
+        SinglyLinkedList sll = new SinglyLinkedList();
         sll.createSinglyLinkedList(5);
         sll.insertFirst(4);
         sll.insertLast(9);
