@@ -25,8 +25,10 @@ public class DuplicateNumber {
         return Arrays.copyOf(uniqueArray, index);
     }
 
+
     public static void main(String[] args) {
         int[] arr  = new int[]{1, 1, 2, 2, 3, 4, 5};
         System.out.println(Arrays.toString(removeDuplicates(arr)));
+        System.out.println(4^2);
     }
 }
