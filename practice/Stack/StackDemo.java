@@ -5,7 +5,12 @@ public class StackDemo {
         Stack stack = new Stack(4);
         System.out.println(stack.isEmpty());
         System.out.println(stack.isFull());
-
+        stack.push(5);        
+        stack.push(6);
+        stack.push(7);        
+        stack.push(8);
+        int res = stack.pop();
+        System.out.println(res);
     }
 }
 
@@ -35,6 +40,30 @@ class Stack {
             return false;
         }
     }
+
+    //push
+    void push(int value) {
+        if(isFull() ) {
+            System.out.println("stack is full");
+        }else {
+            arr[topOfStack+1] = value;
+            topOfStack++;
+            System.out.println("The value is successfully inserted");
+        }
+    }
+
+    //pop
+    int pop(){
+        if(isEmpty()) {
+            System.out.println("stack is empty");
+            return -1;
+        }else {
+            int topStack = arr[topOfStack];
+            topOfStack--;
+            return topStack;
+        }
+    }
+
 
 
 }
