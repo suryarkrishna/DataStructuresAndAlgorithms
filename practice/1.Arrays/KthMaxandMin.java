@@ -1,13 +1,9 @@
-package Arrays;
-
 import java.util.Arrays;
 
 public class KthMaxandMin {
     //kth maximum 
     static int kthMax(int k, int[] array) {
         Arrays.sort(array);
-
-
         return array[array.length - k];
 
     }

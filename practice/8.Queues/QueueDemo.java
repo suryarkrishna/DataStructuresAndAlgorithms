@@ -52,5 +52,34 @@ class Queue {
 
     }
 
+    public int deQueue(){
+        if(isEmpty()){
+            System.out.println("queue is empty");
+            return -1;
+        }else {
+            int res = arr[beginningOfQueue];
+            arr[topOfQueue] = 0;
+            beginningOfQueue++;
+            if(beginningOfQueue > topOfQueue){
+                beginningOfQueue = topOfQueue = -1;
+            }
+            return res;
+
+        }
+    }
+    public int peek() {
+        if(!isEmpty()){
+            return arr[topOfQueue];
+        }else{
+            System.out.println("queue is empty");
+            return -1;
+        }
+    }
+
+    public void delete(){
+        arr = null;
+        System.out.println("queue is deleted");
+    }
+
 }
 
