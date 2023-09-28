@@ -14,8 +14,16 @@ public class MainTree {
         tree.addChild(mainTree);
         tree.addChild(treeDemo);
         
-        System.out.println(practice.print(0));
+        TreeNode recursion = new TreeNode("Recursion");
+        TreeNode gcd = new TreeNode("GCD.java");
+        TreeNode sum = new TreeNode("SumOfDigits.java");
+        TreeNode fib = new TreeNode("Fibonacci.java");
+        practice.addChild(recursion);
+        recursion.addChild(gcd);
+        recursion.addChild(fib);
+        recursion.addChild(sum);
 
+        System.out.println(practice.print(0));
 
     }
 }
@@ -46,7 +54,7 @@ class TreeNode {
         tree = repeatString(level, "  ") + data + "\n"; // this makes the indentation repeat as per level and make it
                                                         // look like file structure
         for (TreeNode node : this.children) {
-            tree += node.print(level+1);
+            tree += node.print(level + 1);
         }
         return tree;
     }
@@ -54,11 +62,10 @@ class TreeNode {
     private static String repeatString(int level, String data) {
         // TODO
         String res = "";
-        for(int i = 0; i < level; i++){
+        for (int i = 0; i < level; i++) {
             res += "  ";
         }
         return res;
     }
 
-    
 }
